@@ -3,17 +3,17 @@ from main2 import Coordinates
 
 
 class Triangle(Coordinates):
-    def __init__(self, x1, x2, y1, y2, x3, y3):
-        super().__init__(x1, x2, y1, y2)
-        self.x3 = x3
-        self.y3 = y3
+    def __init__(self, x1, x2, y1, y2, x3, y3):  # базовый конструктор класса
+        super().__init__(x1, x2, y1, y2)  # базовая фукция супер для переопределения переменных в родительский класс
+        self.x3 = x3  # создаем переменную
+        self.y3 = y3  # создаем переменную
 
     def area_of_a_triangle(self):
-        a = abs(math.sqrt((self.x2 - self.x1)**2 + (self.y2 - self.y1)**2))
-        b = abs(math.sqrt((self.x3 - self.x2)**2 + (self.y3 - self.y2)**2))
-        c = abs(math.sqrt((self.x1 - self.x3)**2 + (self.y1 - self.y3)**2))
-        p = (a + b + c) / 2
-        s = math.sqrt(p*(p-a)*(p-b)*(p-c))
+        a = abs(math.sqrt((self.x2 - self.x1)**2 + (self.y2 - self.y1)**2))  # получаем первую сторону треугольника
+        b = abs(math.sqrt((self.x3 - self.x2)**2 + (self.y3 - self.y2)**2))  # получаем вторую сторону треугольника
+        c = abs(math.sqrt((self.x1 - self.x3)**2 + (self.y1 - self.y3)**2))  # получаем третью сторону треугольника
+        p = (a + b + c) / 2  # получаем полупириметр
+        s = math.sqrt(p*(p-a)*(p-b)*(p-c))  # получаем площадь по формуле с полупириметром
         return s
 
 

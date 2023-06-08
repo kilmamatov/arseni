@@ -1,6 +1,6 @@
 import math
-import turtle
-import time
+import turtle  # библ для работы
+import time  # по факту не нужен (для удобства)
 
 
 class Coordinates:
@@ -17,10 +17,10 @@ class Coordinates:
                f'Координата y2 = {self.y2}\n'
 
     def value(self):
-        res = abs(math.sqrt((self.x2 - self.x1)**2 + (self.y2 - self.y1)**2))
+        res = abs(math.sqrt((self.x2 - self.x1)**2 + (self.y2 - self.y1)**2))  # получаем модуль вектора
         return res
 
-    def picture(self):
+    def picture(self):  # функция для отрисовки вектора при помощи turtle
         screen = turtle.Screen()
         screen.title("Линия вектора")
         # создание черепахи
@@ -39,20 +39,15 @@ class Coordinates:
         # закрытие экрана по нажатию на него
         screen.exitonclick()
 
-    def __del__(self):
+    def __del__(self):  # дезтруктор
         print("Объект удален")
 
 
 if __name__ == '__main__':
     print('Введите координаты')
-    num_x1, num_x2, num_y1, num_y2 = {
-        int(input('x1: ')),
-        int(input('x2: ')),
-        int(input('y1: ')),
-        int(input('y2: '))
-    }
-    result = Coordinates(num_x1, num_x2, num_y1, num_y2)
-    print('', result.value())
+    num_x1, num_x2, num_y1, num_y2 = int(input('x1: ')), int(input('x2: ')), int(input('y1: ')), int(input('y2: '))
+    result = Coordinates(num_x1, num_x2, num_y1, num_y2)  # создаем переменнную класса
+    print('Длинна вектора = ', result.value())
     print(result.info())
     time.sleep(2)
     result.picture()
